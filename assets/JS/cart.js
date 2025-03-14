@@ -133,5 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
       0
     );
     totalPriceElement.innerText = `₱${totalPrice.toFixed(2)}`;
+    localStorage.setItem("totalPrice", totalPrice); // Save total price to localStorage
   }
 });
