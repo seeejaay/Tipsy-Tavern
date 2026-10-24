@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let cartItems = {}; // Object to store cart items and their quantities
 
   // Event listener for cart button large screen
-  cartButtonL.addEventListener("click", toggleCartWindow);
+  if (cartButtonL) cartButtonL.addEventListener("click", toggleCartWindow);
 
   //Event Listener for cart button small screen
-  cartButtonS.addEventListener("click", toggleCartWindow);
+  if (cartButtonS) cartButtonS.addEventListener("click", toggleCartWindow);
 
   // Function to toggle cart window
   function toggleCartWindow() {

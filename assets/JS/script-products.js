@@ -15,32 +15,20 @@ openDesc.addEventListener("click", () => {
   window.open("./info.html", "_self");
 });
 
+// Section shortcuts (only on pages that have them)
 window.onload = function () {
-  var newArrivalsDiv = document.getElementById("newArrivalsLink");
-  newArrivalsDiv.style.cursor = "pointer";
-  newArrivalsDiv.addEventListener("click", function () {
-    window.location.href = "#newarrivals";
-  });
-
-  var bestSellersH5 = document.getElementById("bestSellersLink");
-  bestSellersH5.style.cursor = "pointer";
-  bestSellersH5.addEventListener("click", function () {
-    window.location.href = "#bestsellers";
-  });
-
-  var categoriesH5 = document.getElementById("categoriesLink");
-  categoriesH5.style.cursor = "pointer";
-  categoriesH5.addEventListener("click", function () {
-    window.location.href = "#categories";
-  });
-
-  var specialsH5 = document.getElementById("specialsLink");
-  specialsH5.style.cursor = "pointer";
-  specialsH5.addEventListener("click", function () {
-    window.location.href = "#specials";
+  [["newArrivalsLink", "#newarrivals"], ["bestSellersLink", "#bestsellers"], ["categoriesLink", "#categories"], ["specialsLink", "#specials"]].forEach(function (pair) {
+    var el = document.getElementById(pair[0]);
+    if (!el) return;
+    el.style.cursor = "pointer";
+    el.addEventListener("click", function () {
+      window.location.href = pair[1];
+    });
   });
 };
-document.getElementById("payment").addEventListener("change", function () {
+// The payment form is only on the products page
+var paymentSelect = document.getElementById("payment");
+if (paymentSelect) paymentSelect.addEventListener("change", function () {
   var creditCardInfo = document.getElementById("creditCardInfo");
   var cardNumber = document.getElementById("cardNumber");
   var expiryDate = document.getElementById("expiryDate");
